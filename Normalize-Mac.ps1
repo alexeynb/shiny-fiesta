@@ -11,7 +11,7 @@ Get-Content $inputFile | ForEach-Object {
     if ($line -match $pattern) {
         $mac = $matches[0] -replace '[:\-]', ''     # убираем : и -
         $mac = $mac -replace '\.', ''               # убираем точки
-        $mac = $mac.ToUpper()                       # всё в верхний регистр
+        $mac = $mac.ToLower()                       # всё в нижний регистр
         # разбиваем каждые 2 символа и соединяем дефисами
         $normalized = ($mac -split '(.{2})' | Where-Object { $_ }) -join '-'
         $normalized
